@@ -4,25 +4,22 @@
     "type": "git",
     "url": "git@github.com:rwjblue/ember-router-helpers.git"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "prepare": "yarn workspace ember-router-helpers run prepare",
+    "prepare": "pnpm --filter ember-router-helpers run prepare",
     "start": "npm-run-all --parallel start:*",
-    "start:addon": "yarn workspace ember-router-helpers run start",
-    "start:test-app": "yarn workspace test-app run start",
+    "start:addon": "pnpm --filter ember-router-helpers run start",
+    "start:test-app": "pnpm --filter test-app run start",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:addon": "yarn workspace ember-router-helpers run lint",
-    "lint:test-app": "yarn workspace test-app run lint",
+    "lint:addon": "pnpm --filter workspace ember-router-helpers run lint",
+    "lint:test-app": "pnpm --filter test-app run lint",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:fix:*",
-    "lint:fix:addon": "yarn workspace ember-router-helpers run lint:fix",
-    "lint:fix:test-app": "yarn workspace test-app run lint:fix",
+    "lint:fix:addon": "pnpm --filter ember-router-helpers run lint:fix",
+    "lint:fix:test-app": "pnpm --filter test-app run lint:fix",
     "test": "npm-run-all --aggregate-output --continue-on-error --parallel \"test:!(watch)\"",
     "test:watch": "npm-run-all --aggregate-output --continue-on-error --parallel test:watch:*",
-    "test:test-app": "yarn workspace test-app run test",
-    "test:watch:test-app": "yarn workspace test-app run test:watch",
-    "test:watch:addon": "yarn workspace ember-router-helpers run start",
+    "test:test-app": "pnpm --filter test-app run test",
+    "test:watch:test-app": "pnpm --filter test-app run test:watch",
+    "test:watch:addon": "pnpm --filter ember-router-helpers run start",
     "release": "release-it"
   },
   "devDependencies": {
@@ -33,8 +30,9 @@
   },
   "volta": {
     "node": "16.14.2",
-    "yarn": "1.22.17"
+    "pnpm": "9.5.0"
   },
+  "packageManager": "pnpm@9.5.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
